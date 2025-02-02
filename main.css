@@ -1,0 +1,88 @@
+body {
+  font-family: "Roboto", Arial, sans-serif;
+  background-color: #f4f7f5; /* 밝은 카키 배경 */
+  color: #2f3729; /* 어두운 올리브 텍스트 */
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  position: relative; /* 기준점 설정 */
+  background-color: #6b8f71;
+  color: #fff;
+  padding: 1em 0;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.cart-wrapper {
+  position: absolute;
+  right: 20px;
+}
+
+.cart-icon {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+/* 장바구니 개수 표시 */
+.cart-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: red;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 50%;
+  display: none; /* 기본적으로 숨김 */
+}
+
+main {
+  padding: 2em;
+}
+
+.movie-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movie-item {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1em;
+  margin: 1em;
+  width: 30%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.movie-item:hover {
+  background: #eef1ec; /* 호버 시 연한 카키 */
+}
+
+.movie-item h2 {
+  margin: 0;
+}
+
+button {
+  background: linear-gradient(135deg, #7e9c7c, #657d63); /* 짙은 올리브 그린 */
+  color: white;
+  border: none;
+  padding: 0.5em;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #657d63, #50644f);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(101, 125, 99, 0.4);
+}
