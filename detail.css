@@ -1,16 +1,53 @@
+.header {
+  position: fixed; /* 화면에 고정 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #6b8f71;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  z-index: 1000; /* 다른 요소 위에 표시 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 헤더 아래 그림자 추가 */
+}
+
 body {
   font-family: "Roboto", Arial, sans-serif;
   background-color: #f4f7f5;
   color: #2f3729;
   text-align: center;
   margin: 0;
-  padding: 20px;
+  padding: 80px 20px 20px; /* 상단 패딩 추가 (헤더 공간 확보) */
 }
 
-.header {
-  background-color: #7e9c7c;
+.cart-wrapper {
+  position: absolute;
+  right: 60px;
+}
+
+.cart-icon {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+
+/* 장바구니 개수 표시 */
+.cart-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: red;
   color: white;
-  padding: 1em;
+  font-size: 12px;
+  font-weight: bold;
+  width: 15px;
+  height: 15px;
+  text-align: center;
+  line-height: 15px;
+  border-radius: 50%;
+  display: none; /* 기본적으로 숨김 */
 }
 
 .detail-container {
