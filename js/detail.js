@@ -18,14 +18,22 @@ document.addEventListener("DOMContentLoaded", function () {
   // 해당 ID에 맞는 영화 찾기
   let selectedMovie = data_map.find((movie) => String(movie.id) === movieId);
 
-  if (selectedMovie) {
-    const imagePath = selectedMovie.image.includes("/")
-      ? selectedMovie.image
-      : `img/${selectedMovie.image}`;
+  const imagePath = selectedMovie.image.includes("/")
+    ? selectedMovie.image
+    : `img/${selectedMovie.image}`;
+  const subPath0 = selectedMovie.subimg0.includes("/")
+    ? selectedMovie.subimg0
+    : `img/${selectedMovie.subimg0}`;
 
+  const subPath1 = selectedMovie.subimg1.includes("/")
+    ? selectedMovie.subimg1
+    : `img/${selectedMovie.subimg1}`;
+
+  if (selectedMovie) {
+    console.log(imagePath);
     document.getElementById("movieImage").src = imagePath;
-    document.getElementById("movieImageSub1").src = imagePath.sub[0];
-    document.getElementById("movieImageSub2").src = imagePath.sub[1];
+    document.getElementById("movieImageSub1").src = subPath0;
+    document.getElementById("movieImageSub2").src = subPath1;
     document.getElementById("movieTitle").innerText = selectedMovie.name;
     document.getElementById("movieTime").innerText = selectedMovie.runningTime;
     document.getElementById("movieGenre").innerText = selectedMovie.genre;

@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 return `
                   <tr>
-                    <td><img src="${imagePath}" alt="${movie.name}" width="100px" height="150px"></td>
+                    <td><img src="${imagePath}" alt="${movie.name}" width="100px" height="150px" onclick="goDetail(${movie.id})"></td>
                     <td>${movie.name}</td>
                     <td>${movie.runningTime}</td>
                     <td>${movie.genre}</td>
@@ -88,6 +88,10 @@ document.addEventListener("DOMContentLoaded", function () {
       localStorage.setItem("purchase_history", JSON.stringify(purchaseHistory));
       updatePurchaseHistory();
     }
+  };
+
+  window.goDetail = function (movieId) {
+    window.location.href = `detail.html?id=${movieId}`;
   };
 
   // 개별 영화 삭제
