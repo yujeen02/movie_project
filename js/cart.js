@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let purchaseHistory =
     JSON.parse(localStorage.getItem("purchase_history")) || [];
 
-  // 장바구니 개수
+  // 장바구니 개수 업데이트
   function updateCartCount() {
     localStorage.setItem("cart_count", purchaseHistory.length);
   }

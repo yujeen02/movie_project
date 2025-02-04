@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const heartContainer = document.querySelector(".heart-history");
   let heartHistory = JSON.parse(localStorage.getItem("heart_history")) || [];
 
-  // 좋아요한 영화 목록을 업데이트하는 함수
+  // 찜한 영화 목록을 업데이트하는 함수
   function updateHeartHistory() {
     if (heartHistory.length === 0) {
       heartContainer.innerHTML = "<p>좋아요한 영화가 없습니다.</p>";
@@ -23,8 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   src="./heartAll.png"
                   alt="좋아요"
                   class="heart-icon"
-                  data-name="${movie.name}"
-                   onclick="removeHeart('${movie.id}')"
+                  onclick="removeHeart('${movie.id}')"
                 />
                 <button class="saveBtn" onclick="goDetail(${movie.id})">상세정보</button>
               </div>

@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
   const cartCount = document.getElementById("cartCount");
-
-  let purchaseHistory =
-    JSON.parse(localStorage.getItem("purchase_history")) || [];
   let data_map = JSON.parse(localStorage.getItem("data_map")) || []; // 모든 영화 정보 가져오기
+  let purchaseHistory =
+    JSON.parse(localStorage.getItem("purchase_history")) || []; // 장바구니에 추가된 영화 정보 가져오기
 
+  //장바구니 숫자 카운트 하는 함수
   function updateCartCount() {
     let count = purchaseHistory.length;
     cartCount.innerText = count;
@@ -17,17 +17,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 해당 ID에 맞는 영화 찾기
   let selectedMovie = data_map.find((movie) => String(movie.id) === movieId);
-
-  const imagePath = selectedMovie.image.includes("/")
-    ? selectedMovie.image
-    : `img/${selectedMovie.image}`;
-  const subPath0 = selectedMovie.subimg0.includes("/")
-    ? selectedMovie.subimg0
-    : `img/${selectedMovie.subimg0}`;
-
-  const subPath1 = selectedMovie.subimg1.includes("/")
-    ? selectedMovie.subimg1
-    : `img/${selectedMovie.subimg1}`;
+  const imagePath = `img/${selectedMovie.image}`;
+  const subPath0 = `img/${selectedMovie.subimg0}`;
+  const subPath1 = `img/${selectedMovie.subimg1}`;
 
   if (selectedMovie) {
     console.log(imagePath);

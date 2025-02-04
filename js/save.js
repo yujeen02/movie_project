@@ -46,6 +46,7 @@ function dataPrint() {
     .join("");
 }
 
+// 이미지 랜덤하게 저장
 function getRandomImage() {
   const images = [
     {
@@ -359,10 +360,6 @@ document.addEventListener("DOMContentLoaded", function () {
       genre: genreInput.value,
       plot: plotInput.value,
     };
-
-    console.log(movieInfo.image);
-    console.log(movieInfo.subimg0);
-    console.log(movieInfo.subimg1);
 
     data_map.push(movieInfo);
     localStorage.setItem("data_map", JSON.stringify(data_map));

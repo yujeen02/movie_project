@@ -62,16 +62,17 @@ h1 {
   display: none; /* 기본적으로 숨김 */
 }
 
+/* 세부사항 */
 .detail-container {
   background: white;
   border-radius: 12px;
-  max-width: 600px;
-  margin: 100px auto 30px;
-  padding: 20px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  margin: 50px auto 30px;
+  box-shadow: 0 5px /15px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 500px;
   position: relative;
 }
 
@@ -80,25 +81,23 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 25px;
   height: 200px;
   width: 400px;
-  position: relative; /* 작은 포스터(movieImage)를 겹치기 위해 필요 */
-}
-
-/* 서브 포스터 (가로 정렬) */
-.poster-container img {
-  width: 150px;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 #movieImage {
+  position: absolute;
+  top: 230px;
+  right: 70px;
   border-radius: 8px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  z-index: 100;
 }
-
+.movieInfomation {
+  padding: 20px;
+}
 .btn {
   display: inline-block;
   background: linear-gradient(135deg, #5c8d89, #3e615a);

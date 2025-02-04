@@ -1,10 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
   const movieContainer = document.querySelector(".movie-container");
   const cartCount = document.getElementById("cartCount");
-
+  // 모든 영화 정보
   let data_map = JSON.parse(localStorage.getItem("data_map")) || [];
+  // 장바구니 영화 정보
   let purchaseHistory =
     JSON.parse(localStorage.getItem("purchase_history")) || [];
+  // 찜한 영화 정보
   let heartHistory = JSON.parse(localStorage.getItem("heart_history")) || [];
 
   // 장바구니 개수 증가 감소, 0이면 숨김처리
@@ -14,17 +16,17 @@ document.addEventListener("DOMContentLoaded", function () {
     cartCount.style.display = count > 0 ? "block" : "none";
   }
 
+  // data_map에 저장된 내용 없을 때
   if (data_map.length === 0) {
     movieContainer.innerHTML = "<p>저장된 영화가 없습니다.</p>";
   } else {
     movieContainer.innerHTML = data_map
       .map((movie) => {
-        const imagePath = movie.image.includes("/")
-          ? movie.image
-          : `img/${movie.image}`;
+        // 이미지 경로
+        const imagePath = `img/${movie.image}`;
 
-        const isLiked = heartHistory.some((item) => item.id === movie.id);
         // 좋아요 눌린 영화인지 확인
+        const isLiked = heartHistory.some((item) => item.id === movie.id);
 
         return `
           <div class="movie-item" data-id="${movie.id}">
@@ -57,15 +59,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 좋아요 버튼 클릭 시 영화 추가/삭제
   window.heartClick = function (movieId) {
+    // 해당하는 영화의 하트 아이콘
     let heartIcon = document.querySelector(`.heart-icon[data-id="${movieId}"]`);
+    // 현재 클릭한 영화 데이터
     let currentMovie = data_map.find((movie) => movie.id == movieId);
-    // 숫자로 변환하여 비교
-
-    if (!currentMovie) return;
-
+    // some: true or false, 이미 찜한 목록에 있는지 확인
     let isLiked = heartHistory.some((item) => item.id == movieId);
-    // 숫자로 비교
-
+    // true: 이미 찜한 목록에 있으면 삭제
     if (isLiked) {
       heartHistory = heartHistory.filter((item) => item.id != movieId);
       heartIcon.src = "./heart.png"; // 좋아요 취소
