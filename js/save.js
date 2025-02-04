@@ -48,24 +48,29 @@ function dataPrint() {
 
 function getRandomImage() {
   const images = [
-    "1.png",
-    "2.png",
-    "3.png",
-    "4.png",
-    "5.png",
-    "6.png",
-    "7.png",
-    "8.png",
-    "9.png",
-    "10.png",
-    "11.png",
-    "12.png",
-    "13.png",
-    "14.png",
-    "15.png",
-    "16.png",
+    { main: "1.png", sub: ["1-1.jpeg", "1-2.jpeg"] },
+    { main: "2.png", sub: ["2-1.jpeg", "2-2.jpeg"] },
+    { main: "3.png", sub: ["3-1.jpeg", "3-2.jpeg"] },
+    { main: "4.png", sub: ["4-1.jpeg", "4-2.jpeg"] },
+    { main: "5.png", sub: ["5-1.jpeg", "5-2.jpeg"] },
+    { main: "6.png", sub: ["6-1.jpeg", "6-2.jpeg"] },
+    { main: "7.png", sub: ["7-1.jpeg", "7-2.jpeg"] },
+    { main: "8.png", sub: ["8-1.jpeg", "8-2.jpeg"] },
+    { main: "9.png", sub: ["9-1.jpeg", "9-2.jpeg"] },
+    { main: "10.png", sub: ["10-1.jpeg", "10-2.jpeg"] },
+    { main: "11.png", sub: ["11-1.jpeg", "11-2.jpeg"] },
+    { main: "12.png", sub: ["12-1.jpeg", "12-2.jpeg"] },
+    { main: "13.png", sub: ["13-1.jpeg", "13-2.jpeg"] },
+    { main: "14.png", sub: ["14-1.jpeg", "14-2.jpeg"] },
+    { main: "15.png", sub: ["15-1.jpeg", "15-2.jpeg"] },
+    { main: "16.png", sub: ["16-1.jpeg", "16-2.jpeg"] },
   ];
-  return images[Math.floor(Math.random() * images.length)];
+
+  const randomImage = images[Math.floor(Math.random() * images.length)];
+  return {
+    main: randomImage.main,
+    sub: randomImage.sub,
+  };
 }
 
 //input
@@ -296,7 +301,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const saveButton = document.querySelector(".saveBtn");
   saveButton.addEventListener("click", function () {
     let movieInfo = {
-      image: getRandomImage(),
+      image: getRandomImage().main,
+      subimg: getRandomImage().sub,
       id: idInput.value,
       name: movieNameInput.value,
       runningTime: runningTimeInput.value,

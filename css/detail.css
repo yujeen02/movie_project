@@ -62,89 +62,64 @@ h1 {
   display: none; /* 기본적으로 숨김 */
 }
 
-/* 영화 상세 정보 컨테이너 */
 .detail-container {
   display: flex;
-  background: white;
-  padding: 25px;
-  border-radius: 12px;
-  max-width: 800px;
-  margin: 30px auto;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  gap: 20px;
-  text-align: left;
-  align-items: center;
-}
-
-/* 영화 포스터 */
-.poster img {
-  width: 300px;
-  height: 500px;
-  border-radius: 10px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* 영화 정보 */
-.movieInfomation {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 100px 20px 20px;
+  flex-direction: row-reverse;
 }
 
-/* 제목 */
-h2 {
-  font-size: 22px;
+.poster {
+  flex: 1;
+  max-width: 400px;
+  text-align: center;
+}
+
+.poster img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.movieInfomation {
+  flex: 2;
+  padding: 20px;
+}
+
+.movieInfomation h2 {
+  font-size: 24px;
   font-weight: bold;
-  color: #333;
-  margin-bottom: 10px;
+  color: #222;
 }
 
-/* 영화 정보 스타일 */
-p {
+.movieInfomation p {
   font-size: 16px;
-  color: #555;
   margin: 5px 0;
+  color: #555;
 }
 
-/* 버튼 스타일 */
 .btn {
-  width: 200px;
-  height: 50px;
-  font-size: 18px;
-  font-weight: bold;
-  background: linear-gradient(135deg, #4a766e, #2e5148);
+  display: inline-block;
+  background: linear-gradient(135deg, #5c8d89, #3e615a);
   color: white;
   border: none;
+  padding: 10px 20px;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .btn:hover {
-  background: linear-gradient(135deg, #2e5148, #1f3a34);
-  transform: scale(1.05);
+  background: linear-gradient(135deg, #3e615a, #2b4541);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(60, 90, 85, 0.4);
 }
 
-/* 반응형 디자인 */
-@media (max-width: 768px) {
-  .detail-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .movieInfomation {
-    align-items: center;
-  }
-
-  .btn {
-    width: 80%;
-  }
-}
-
-/* 푸터 스타일 */
 .bottom {
   background-color: #f8f8f8;
   color: #333;
@@ -156,7 +131,6 @@ p {
   margin-top: 40px;
 }
 
-/* 로고 및 영화관 이름 */
 .footer-logo {
   display: flex;
   align-items: center;
@@ -176,7 +150,6 @@ p {
   color: #444;
 }
 
-/* 하단 정보 스타일 */
 .footer-info p {
   margin: 10px 0;
   font-size: 13px;
@@ -189,18 +162,15 @@ p {
   color: #999;
 }
 
-/* 반응형 디자인 */
 @media (max-width: 768px) {
-  .heart-container {
-    justify-content: center;
+  .detail-container {
+    flex-direction: column;
+    align-items: center;
   }
-
-  .heart-history {
-    flex-wrap: wrap; /* 작은 화면에서는 줄바꿈 */
-    justify-content: center;
+  .poster {
+    max-width: 100%;
   }
-
-  .movie-item {
-    min-width: 180px;
+  .movieInfomation {
+    text-align: center;
   }
 }

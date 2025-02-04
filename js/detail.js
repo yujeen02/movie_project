@@ -24,6 +24,8 @@ document.addEventListener("DOMContentLoaded", function () {
       : `img/${selectedMovie.image}`;
 
     document.getElementById("movieImage").src = imagePath;
+    document.getElementById("movieImageSub1").src = imagePath.sub[0];
+    document.getElementById("movieImageSub2").src = imagePath.sub[1];
     document.getElementById("movieTitle").innerText = selectedMovie.name;
     document.getElementById("movieTime").innerText = selectedMovie.runningTime;
     document.getElementById("movieGenre").innerText = selectedMovie.genre;
