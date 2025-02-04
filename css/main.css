@@ -1,0 +1,234 @@
+body {
+  font-family: "Roboto", Arial, sans-serif;
+  background-color: #f0f2f5; /* 밝고 부드러운 배경 */
+  color: #333; /* 다크 그레이 텍스트 */
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  position: fixed; /* 화면에 고정 */
+  background-color: #4a6472; /* 고급스러운 그린 */
+  color: #fff;
+  padding: 1em 0;
+  display: flex;
+  align-items: center;
+  padding: 25px 20px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* 다른 요소 위에 표시 */
+}
+
+.headerCenter {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+#mainIcon {
+  width: 100px;
+  height: auto;
+}
+
+.cinemaName {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+}
+.lefticon {
+  width: 38px;
+  height: 38px;
+}
+.heart-icon {
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+}
+
+.heart-icon1 {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+
+.usericon {
+  position: absolute;
+  right: 70px;
+  width: 80px;
+  height: 80px;
+}
+
+.cart-wrapper {
+  position: absolute;
+  right: 50px;
+}
+
+.cart-icon {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+
+.cart-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  width: 15px;
+  height: 15px;
+  text-align: center;
+  line-height: 15px;
+  border-radius: 50%;
+  display: none; /* 기본적으로 숨김 */
+}
+
+.body-wrap {
+  padding: 2em;
+  align-items: center;
+}
+
+.movie-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px;
+  justify-content: start;
+}
+
+.movie-item {
+  position: relative;
+  width: 100%;
+  max-width: 200px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.movieItemBox {
+  text-align: center;
+}
+
+.movie-item:hover {
+  transform: translateY(-5px);
+}
+
+.movie-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.movie-item h2 {
+  margin: 0;
+}
+
+button {
+  background: linear-gradient(135deg, #5c8d89, #3e615a); /* 세련된 블루-그린 */
+  color: white;
+  border: none;
+  padding: 0.5em;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #3e615a, #2b4541);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(60, 90, 85, 0.4);
+}
+
+.clickHeart1 {
+  display: flex;
+  align-items: center; /* Vertically center the icons */
+  gap: 10px; /* Add space between the heart icons */
+}
+
+.heart-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.saveBtn {
+  margin-left: 10px;
+}
+
+/* 기본 푸터 스타일 */
+.bottom {
+  background-color: #f8f8f8;
+  color: #333;
+  padding: 20px 10px;
+  font-size: 14px;
+  line-height: 1.6;
+  border-top: 1px solid #ddd;
+}
+
+/* 로고 및 영화관 이름 */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.footer-logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.cinemaNameBottom {
+  font-size: 18px;
+  font-weight: bold;
+  color: #444;
+}
+
+/* 하단 정보 스타일 */
+.footer-info p {
+  margin: 10px 0;
+  font-size: 13px;
+  color: #666;
+}
+
+/* 이메일, 링크 스타일 */
+.footer-info a {
+  color: #0073e6;
+  text-decoration: none;
+}
+
+.footer-info a:hover {
+  text-decoration: underline;
+}
+
+/* 저작권 */
+.footer-copyright {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #999;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .footer-logo {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .cinemaNameBottom {
+    font-size: 16px;
+  }
+
+  .footer-info {
+    text-align: center;
+  }
+}

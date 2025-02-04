@@ -84,7 +84,7 @@ body {
 /* 테이블 스타일 */
 .main-wrap {
   width: 90%;
-  max-width: 1000px; /* 최대 너비 설정 */
+  max-width: 1500px; /* 최대 너비 설정 */
   margin-top: 20px;
   overflow-x: auto; /* 작은 화면에서 가로 스크롤 허용 */
 }

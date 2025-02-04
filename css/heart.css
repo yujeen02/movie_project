@@ -1,0 +1,139 @@
+.header {
+  position: relative; /* 기준점 설정 */
+  background-color: #4a766e;
+  color: #fff;
+  padding: 1em 0;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  gap: 20px;
+}
+.heart-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.heart-table th,
+.heart-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.heart-table th {
+  background-color: #4a766e;
+  color: white;
+}
+
+.heart-table tr:nth-child(even) {
+  background-color: #f0f2f5; /* 밝고 부드러운 배경 */
+}
+
+.heart-table img {
+  border-radius: 8px;
+}
+
+.delete-btn {
+  background: #d9534f;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.delete-btn:hover {
+  background: #c9302c;
+}
+
+.clear-cart-btn {
+  display: block;
+  width: 100%;
+  max-width: 250px;
+  margin: 20px auto;
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.clear-cart-btn:hover {
+  background-color: #c9302c;
+  transform: translateY(-2px);
+}
+
+/* 기본 푸터 스타일 */
+.bottom {
+  background-color: #f8f8f8;
+  color: #333;
+  padding: 20px 10px;
+  font-size: 14px;
+  line-height: 1.6;
+  border-top: 1px solid #ddd;
+}
+
+/* 로고 및 영화관 이름 */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.footer-logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.cinemaNameBottom {
+  font-size: 18px;
+  font-weight: bold;
+  color: #444;
+}
+
+/* 하단 정보 스타일 */
+.footer-info p {
+  margin: 10px 0;
+  font-size: 13px;
+  color: #666;
+}
+
+/* 이메일, 링크 스타일 */
+.footer-info a {
+  color: #0073e6;
+  text-decoration: none;
+}
+
+.footer-info a:hover {
+  text-decoration: underline;
+}
+
+/* 저작권 */
+.footer-copyright {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #999;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .footer-logo {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .cinemaNameBottom {
+    font-size: 16px;
+  }
+
+  .footer-info {
+    text-align: center;
+  }
+}

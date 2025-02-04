@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("cart_count", purchaseHistory.length);
   }
 
-  // 영화 데이터를 { 영화 ID: {영화 정보, 수량} } 형태로 변환
   function aggregateMovies() {
     const aggregated = {};
     purchaseHistory.forEach((movie) => {
@@ -55,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <td>${movie.name}</td>
                     <td>${movie.runningTime}</td>
                     <td>${movie.genre}</td>
-                    <td>${movie.plot}</td>
+                    <td class="moviePlot">${movie.plot}</td>
                     <td>
                       <button onclick="updateQuantity('${movie.name}', -1)">➖</button>
                       <span>${movie.quantity}</span>
