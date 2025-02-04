@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
       heartContainer.innerHTML = "<p>좋아요한 영화가 없습니다.</p>";
     } else {
       heartContainer.innerHTML = heartHistory
-        .map((movie, index) => {
+        .map((movie) => {
           const imagePath = movie.image.includes("/")
             ? movie.image
             : `img/${movie.image}`;
@@ -27,8 +27,9 @@ document.addEventListener("DOMContentLoaded", function () {
                   alt="좋아요"
                   class="heart-icon"
                   data-name="${movie.name}"
+                   onclick="removeHeart('${movie.id}')"
                 />
-                <button class="saveBtn" data-index="${index}">상세정보</button>
+                <button class="saveBtn" onclick="goDetail(${movie.id})">상세정보</button>
               </div>
             </div>
           `;
@@ -37,28 +38,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // 상세 정보 클릭하면 localStorage에 저장 후 detail.html로 이동
-  document.addEventListener("click", function (event) {
-    if (event.target.classList.contains("saveBtn")) {
-      let index = event.target.getAttribute("data-index");
-      let selectedMovie = heartHistory[index];
+  // 상세 정보 클릭하면 상세페이지로 이동
+  window.goDetail = function (movieId) {
+    window.location.href = `detail.html?id=${movieId}`;
+  };
 
-      localStorage.setItem("selected_movie", JSON.stringify(selectedMovie));
-      window.location.href = `detail.html`; // 상세페이지로 이동
-    }
-  });
+  // 좋아요 취소 -> heart.html에서도 없애기
+  window.removeHeart = function (movieid) {
+    heartHistory = heartHistory.filter((item) => item.id !== movieid);
+    localStorage.setItem("heart_history", JSON.stringify(heartHistory));
 
-  // 좋아요 삭제 -> html에서도 삭제됨
-  document.addEventListener("click", function (event) {
-    if (event.target.classList.contains("heart-icon")) {
-      let movieName = event.target.getAttribute("data-name");
+    updateHeartHistory(); // 화면 업데이트
+  };
 
-      heartHistory = heartHistory.filter((item) => item.name !== movieName);
-      localStorage.setItem("heart_history", JSON.stringify(heartHistory));
-
-      updateHeartHistory();
-    }
-  });
-
-  updateHeartHistory(); // 초기 실행 시 좋아요한 영화 표시
+  updateHeartHistory();
 });

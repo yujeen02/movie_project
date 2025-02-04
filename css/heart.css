@@ -1,75 +1,106 @@
-.header {
-  position: relative; /* 기준점 설정 */
-  background-color: #4a766e;
-  color: #fff;
-  padding: 1em 0;
-  display: flex;
-  align-items: center;
-  padding: 10px 20px;
-  gap: 20px;
-}
-.heart-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-.heart-table th,
-.heart-table td {
-  border: 1px solid #ddd;
-  padding: 10px;
+/* 기본 스타일 */
+body {
+  font-family: "Roboto", Arial, sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+  margin: 0;
+  padding: 0;
   text-align: center;
 }
 
-.heart-table th {
-  background-color: #4a766e;
-  color: white;
-}
-
-.heart-table tr:nth-child(even) {
-  background-color: #f0f2f5; /* 밝고 부드러운 배경 */
-}
-
-.heart-table img {
-  border-radius: 8px;
-}
-
-.delete-btn {
-  background: #d9534f;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 5px;
-  font-weight: bold;
-}
-
-.delete-btn:hover {
-  background: #c9302c;
-}
-
-.clear-cart-btn {
-  display: block;
+/* 헤더 스타일 */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  background-color: #4a6472;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* 좋아요한 영화 목록을 가로로 정렬 */
+.heart-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.heart-history {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  padding: 20px;
+  overflow-x: auto;
+  max-width: 90%;
+}
+
+/* 영화 항목 스타일 */
+.movie-item {
+  display: inline-block;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  min-width: 200px;
   max-width: 250px;
-  margin: 20px auto;
-  background-color: #d9534f;
+  text-align: center;
+}
+
+.movie-item:hover {
+  transform: translateY(-5px);
+}
+
+/* 포스터 이미지 크기 고정 */
+.movie-img {
+  width: 200px; /* ⭐ 모든 포스터의 너비를 동일하게 설정 */
+  height: 300px; /* ⭐ 모든 포스터의 높이를 동일하게 설정 */
+  object-fit: cover; /* ⭐ 비율 유지하면서 크롭 */
+  border-radius: 8px;
+}
+
+.movieItemBox {
+  text-align: center;
+}
+
+.heart-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.saveBtn {
+  background: linear-gradient(135deg, #5c8d89, #3e615a);
   color: white;
   border: none;
-  padding: 10px;
+  padding: 8px 12px;
   border-radius: 8px;
-  font-size: 16px;
   cursor: pointer;
-  font-weight: bold;
   transition: all 0.3s ease;
+  font-weight: bold;
 }
 
-.clear-cart-btn:hover {
-  background-color: #c9302c;
+.saveBtn:hover {
+  background: linear-gradient(135deg, #3e615a, #2b4541);
   transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(60, 90, 85, 0.4);
 }
 
-/* 기본 푸터 스타일 */
+/* 푸터 스타일 */
 .bottom {
   background-color: #f8f8f8;
   color: #333;
@@ -77,6 +108,8 @@
   font-size: 14px;
   line-height: 1.6;
   border-top: 1px solid #ddd;
+  text-align: center;
+  margin-top: 40px;
 }
 
 /* 로고 및 영화관 이름 */
@@ -84,6 +117,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  justify-content: center;
   margin-bottom: 10px;
 }
 
@@ -105,17 +139,6 @@
   color: #666;
 }
 
-/* 이메일, 링크 스타일 */
-.footer-info a {
-  color: #0073e6;
-  text-decoration: none;
-}
-
-.footer-info a:hover {
-  text-decoration: underline;
-}
-
-/* 저작권 */
 .footer-copyright {
   margin-top: 10px;
   font-size: 12px;
@@ -124,16 +147,16 @@
 
 /* 반응형 디자인 */
 @media (max-width: 768px) {
-  .footer-logo {
-    flex-direction: column;
-    gap: 5px;
+  .heart-container {
+    justify-content: center;
   }
 
-  .cinemaNameBottom {
-    font-size: 16px;
+  .heart-history {
+    flex-wrap: wrap; /* 작은 화면에서는 줄바꿈 */
+    justify-content: center;
   }
 
-  .footer-info {
-    text-align: center;
+  .movie-item {
+    min-width: 180px;
   }
 }

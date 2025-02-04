@@ -4,21 +4,22 @@ document.addEventListener("DOMContentLoaded", function () {
   let purchaseHistory =
     JSON.parse(localStorage.getItem("purchase_history")) || [];
 
-  // 장바구니 개수 업데이트
+  // 장바구니 개수
   function updateCartCount() {
     localStorage.setItem("cart_count", purchaseHistory.length);
   }
 
+  // 영화 정보를 객체로 만들어 중복 제거 후 개수 계산
   function aggregateMovies() {
     const aggregated = {};
     purchaseHistory.forEach((movie) => {
-      if (aggregated[movie.name]) {
-        aggregated[movie.name].quantity += 1;
+      if (aggregated[movie.id]) {
+        aggregated[movie.id].quantity += 1;
       } else {
-        aggregated[movie.name] = { ...movie, quantity: 1 };
+        aggregated[movie.id] = { ...movie, quantity: 1 };
       }
     });
-    return Object.values(aggregated);
+    return Object.values(aggregated); // 배열 형태로 변환
   }
 
   // 장바구니 업데이트
@@ -43,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
           </thead>
           <tbody>
             ${aggregatedMovies
-              .map((movie, index) => {
+              .map((movie) => {
                 const imagePath = movie.image.includes("/")
                   ? movie.image
                   : `img/${movie.image}`;
@@ -56,12 +57,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     <td>${movie.genre}</td>
                     <td class="moviePlot">${movie.plot}</td>
                     <td>
-                      <button onclick="updateQuantity('${movie.name}', -1)">➖</button>
+                      <button onclick="updateQuantity('${movie.id}', -1)">➖</button>
                       <span>${movie.quantity}</span>
-                      <button onclick="updateQuantity('${movie.name}', 1)">➕</button>
+                      <button onclick="updateQuantity('${movie.id}', 1)">➕</button>
                     </td>
                     <td>
-                      <button class="delete-btn" onclick="removeFromCart('${movie.name}')">삭제</button>
+                      <button class="delete-btn" onclick="deletemovie('${movie.id}')">삭제</button>
                     </td>
                   </tr>
                 `;
@@ -75,11 +76,9 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCartCount();
   }
 
-  // 수량 증가/감소 기능
-  window.updateQuantity = function (movieName, change) {
-    const index = purchaseHistory.findIndex(
-      (movie) => movie.name === movieName
-    );
+  //수량 증가/감소 기능
+  window.updateQuantity = function (movieId, change) {
+    const index = purchaseHistory.findIndex((movie) => movie.id === movieId);
     if (index !== -1) {
       if (change === -1) {
         purchaseHistory.splice(index, 1);
@@ -92,22 +91,22 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   // 개별 영화 삭제
-  window.removeFromCart = function (movieName) {
+  window.deletemovie = function (Id) {
     purchaseHistory = purchaseHistory.filter(
-      (movie) => movie.name !== movieName
+      (movie) => Number(movie.id) !== Number(Id)
     );
     localStorage.setItem("purchase_history", JSON.stringify(purchaseHistory));
     updatePurchaseHistory();
   };
 
   // 장바구니 전체 삭제
-  window.clearCart = function () {
-    if (confirm("정말 장바구니를 모두 비우시겠습니까?")) {
+  window.clearCart = function clearCart() {
+    if (confirm("장바구니를 모두 비우시겠습니까?")) {
       localStorage.removeItem("purchase_history");
       purchaseHistory = [];
       updatePurchaseHistory();
     }
   };
 
-  updatePurchaseHistory();
+  updatePurchaseHistory(); // 초기 실행 시 장바구니 업데이트
 });

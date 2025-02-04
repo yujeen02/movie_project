@@ -1,3 +1,11 @@
+body {
+  font-family: "Roboto", Arial, sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
 .header {
   position: relative; /* 기준점 설정 */
   background-color: #4a6472;
@@ -5,9 +13,11 @@
   padding: 1em 0;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 10px 20px;
   gap: 20px;
 }
+
 .purchase-table {
   width: 100%;
   border-collapse: collapse;
@@ -69,7 +79,7 @@
   transform: translateY(-2px);
 }
 
-/* 기본 푸터 스타일 */
+/* 푸터 스타일 */
 .bottom {
   background-color: #f8f8f8;
   color: #333;
@@ -77,6 +87,8 @@
   font-size: 14px;
   line-height: 1.6;
   border-top: 1px solid #ddd;
+  text-align: center;
+  margin-top: 40px;
 }
 
 /* 로고 및 영화관 이름 */
@@ -84,6 +96,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  justify-content: center;
   margin-bottom: 10px;
 }
 
@@ -105,17 +118,6 @@
   color: #666;
 }
 
-/* 이메일, 링크 스타일 */
-.footer-info a {
-  color: #0073e6;
-  text-decoration: none;
-}
-
-.footer-info a:hover {
-  text-decoration: underline;
-}
-
-/* 저작권 */
 .footer-copyright {
   margin-top: 10px;
   font-size: 12px;
@@ -124,17 +126,17 @@
 
 /* 반응형 디자인 */
 @media (max-width: 768px) {
-  .footer-logo {
-    flex-direction: column;
-    gap: 5px;
+  .heart-container {
+    justify-content: center;
   }
 
-  .cinemaNameBottom {
-    font-size: 16px;
+  .heart-history {
+    flex-wrap: wrap; /* 작은 화면에서는 줄바꿈 */
+    justify-content: center;
   }
 
-  .footer-info {
-    text-align: center;
+  .movie-item {
+    min-width: 180px;
   }
 }
 

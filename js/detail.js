@@ -3,20 +3,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let purchaseHistory =
     JSON.parse(localStorage.getItem("purchase_history")) || [];
-  let selectedMovie = JSON.parse(localStorage.getItem("selected_movie")); // 저장된 영화 정보 가져오기
+  let data_map = JSON.parse(localStorage.getItem("data_map")) || []; // 모든 영화 정보 가져오기
 
   function updateCartCount() {
     let count = purchaseHistory.length;
     cartCount.innerText = count;
-
-    if (count > 0) {
-      cartCount.style.display = "flex";
-    } else {
-      cartCount.style.display = "none";
-    }
+    cartCount.style.display = count > 0 ? "flex" : "none";
   }
 
-  // 선택한 영화 정보가 있을 경우 화면에 표시
+  // URL에서 영화 ID 가져오기
+  const urlParams = new URLSearchParams(window.location.search);
+  const movieId = urlParams.get("id");
+
+  // 해당 ID에 맞는 영화 찾기
+  let selectedMovie = data_map.find((movie) => String(movie.id) === movieId);
+
   if (selectedMovie) {
     const imagePath = selectedMovie.image.includes("/")
       ? selectedMovie.image
@@ -29,8 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("moviePlot").innerText = selectedMovie.plot;
 
     // 관람권 구매 버튼 기능 추가
-    const purchaseButton = document.querySelector(".btn");
-    purchaseButton.addEventListener("click", function () {
+    document.querySelector(".btn").addEventListener("click", function () {
       purchaseHistory.push(selectedMovie);
       localStorage.setItem("purchase_history", JSON.stringify(purchaseHistory));
       updateCartCount();
