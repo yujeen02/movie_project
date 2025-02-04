@@ -17,9 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="movie-item">
               <div class="movieItemBox">
                   <img src="${imagePath}" alt="${movie.name}" class="movie-img" width="200px" height="300px">  
-                  <h2>${movie.name}</h2>
-                  <p><strong>러닝타임:</strong> ${movie.runningTime}</p>
-                  <p><strong>장르:</strong> ${movie.genre}</p>
               </div>
               <div class="clickHeart1">
                 <img

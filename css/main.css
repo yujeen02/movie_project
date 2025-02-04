@@ -1,14 +1,14 @@
 body {
   font-family: "Roboto", Arial, sans-serif;
-  background-color: #f0f2f5; /* 밝고 부드러운 배경 */
-  color: #333; /* 다크 그레이 텍스트 */
+  background-color: #f0f2f5;
+  color: #333;
   margin: 0;
   padding: 0;
 }
 
 .header {
-  position: fixed; /* 화면에 고정 */
-  background-color: #4a6472; /* 고급스러운 그린 */
+  position: fixed;
+  background-color: #4a6472;
   color: #fff;
   padding: 1em 0;
   display: flex;
@@ -17,7 +17,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000; /* 다른 요소 위에 표시 */
+  z-index: 1000;
 }
 
 .headerCenter {
@@ -77,34 +77,28 @@ body {
   text-align: center;
   line-height: 15px;
   border-radius: 50%;
-  display: none; /* 기본적으로 숨김 */
+  display: none;
 }
 
 .body-wrap {
   padding: 2em;
+  padding-top: 120px;
   align-items: center;
 }
 
 .movie-container {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 30px;
-  justify-content: start;
+  gap: 20px;
 }
 
 .movie-item {
-  position: relative;
   width: 100%;
-  max-width: 200px;
   background-color: #ffffff;
-  border-radius: 10px;
-  padding: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
-}
-
-.movieItemBox {
-  text-align: center;
+  position: relative;
 }
 
 .movie-item:hover {
@@ -113,16 +107,12 @@ body {
 
 .movie-img {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-.movie-item h2 {
-  margin: 0;
+  height: 100%;
+  object-fit: cover;
 }
 
 button {
-  background: linear-gradient(135deg, #5c8d89, #3e615a); /* 세련된 블루-그린 */
+  background: linear-gradient(135deg, #5c8d89, #3e615a);
   color: white;
   border: none;
   padding: 0.5em;
@@ -139,11 +129,12 @@ button:hover {
 }
 
 .clickHeart1 {
+  position: absolute;
+  top: 10px;
+  right: 10px;
   display: flex;
-  align-items: center; /* 세로 중앙 정렬 */
-  justify-content: center; /* 가로 중앙 정렬 */
-  gap: 10px; /* 아이콘과 버튼 간격 */
-  width: 100%; /* 부모 요소 기준으로 중앙 정렬 */
+  align-items: center;
+  justify-content: center;
 }
 
 .heart-icon {
@@ -156,7 +147,6 @@ button:hover {
   margin-left: 10px;
 }
 
-/* 푸터 스타일 */
 .bottom {
   background-color: #f8f8f8;
   color: #333;
@@ -168,7 +158,6 @@ button:hover {
   margin-top: 40px;
 }
 
-/* 로고 및 영화관 이름 */
 .footer-logo {
   display: flex;
   align-items: center;
@@ -188,7 +177,6 @@ button:hover {
   color: #444;
 }
 
-/* 하단 정보 스타일 */
 .footer-info p {
   margin: 10px 0;
   font-size: 13px;
@@ -201,14 +189,13 @@ button:hover {
   color: #999;
 }
 
-/* 반응형 디자인 */
 @media (max-width: 768px) {
   .heart-container {
     justify-content: center;
   }
 
   .heart-history {
-    flex-wrap: wrap; /* 작은 화면에서는 줄바꿈 */
+    flex-wrap: wrap;
     justify-content: center;
   }
 

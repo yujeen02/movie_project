@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let data_map = JSON.parse(localStorage.getItem("data_map")) || [];
   let purchaseHistory =
     JSON.parse(localStorage.getItem("purchase_history")) || [];
-  let heartHistory = JSON.parse(localStorage.getItem("heart_history")) || []; // ❤️ 저장된 좋아요 목록 불러오기
+  let heartHistory = JSON.parse(localStorage.getItem("heart_history")) || [];
 
   // 장바구니 개수 증가 감소, 0이면 숨김처리
   function updateCartCount() {
@@ -22,19 +22,17 @@ document.addEventListener("DOMContentLoaded", function () {
         const imagePath = movie.image.includes("/")
           ? movie.image
           : `img/${movie.image}`;
+
         const isLiked = heartHistory.some((item) => item.id === movie.id);
         // 좋아요 눌린 영화인지 확인
 
         return `
           <div class="movie-item" data-id="${movie.id}">
-            <div class="movieItemBox">
               <img src="${imagePath}" alt="${
           movie.name
-        }" class="movie-img" width="200px" height="300px">  
-              <h2>${movie.name}</h2>
-              <p><strong>러닝타임:</strong> ${movie.runningTime}</p>
-              <p><strong>장르:</strong> ${movie.genre}</p>
-            </div>
+        }" class="movie-img" width="200px" height="300px" onclick="goDetail(${
+          movie.id
+        })">  
             <div class="clickHeart1">
               <img
                 src="${isLiked ? "./heartAll.png" : "./heart.png"}"
@@ -43,9 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 data-id="${movie.id}"
                 onclick="heartClick(${movie.id})"
               />
-              <button class="saveBtn" data-id="${movie.id}" onclick="goDetail(${
-          movie.id
-        })">상세정보</button>
+
             </div>
           </div>
         `;
