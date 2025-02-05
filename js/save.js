@@ -264,6 +264,7 @@ const clearError = (id) => {
   inputGSpan.innerText = "";
   inputPSpan.innerText = "";
 };
+
 //수정
 const update = (id) => {
   // 경력 이름 나이 div

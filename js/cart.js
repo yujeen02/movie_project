@@ -25,12 +25,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     return Object.values(group); // 배열 형태로 변환
   }
-
   // 장바구니 업데이트
   function updatePurchaseHistory() {
-    const groupMovies = groupMovies();
+    console.log("updatePurchaseHistory 실행됨!");
+    const groupedMovies = groupMovies();
 
-    if (groupMovies.length === 0) {
+    if (groupedMovies.length === 0) {
       purchaseHistoryContainer.innerHTML = "<p>구매한 영화가 없습니다.</p>";
     } else {
       purchaseHistoryContainer.innerHTML = `
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </tr>
           </thead>
           <tbody>
-            ${groupMovies
+            ${groupedMovies
               .map((movie) => {
                 const imagePath = movie.image.includes("/")
                   ? movie.image
