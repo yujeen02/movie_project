@@ -76,7 +76,7 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 500px;
+  height: auto;
   position: relative;
 }
 
@@ -93,7 +93,7 @@ h1 {
 
 #movieImage {
   position: absolute;
-  top: 230px;
+  top: 200px;
   right: 70px;
   border-radius: 8px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
@@ -102,6 +102,14 @@ h1 {
 
 .movieInfomation {
   padding: 20px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* 위아래 간격 */
+  max-width: 400px; /* 최대 너비 설정 */
+  word-wrap: break-word; /* 단어가 길 경우 자동 줄바꿈 */
+  overflow-wrap: break-word; /* 긴 단어도 줄바꿈 */
+  white-space: normal; /* 기본적인 줄바꿈 허용 */
 }
 
 .btn {

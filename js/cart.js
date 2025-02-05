@@ -9,7 +9,8 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("cart_count", purchaseHistory.length);
   }
 
-  // 영화 정보를 객체로 만들고 중복 제거 후 개수 계산
+  // 영화 정보를 객체로 만들고 개수 계산
+  // 장바구니에 영화 중복 -> 수량 체크
   function groupMovies() {
     const group = {};
     //Id별로 그룹화할 객체
