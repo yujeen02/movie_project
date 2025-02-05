@@ -9,24 +9,27 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("cart_count", purchaseHistory.length);
   }
 
-  // 영화 정보를 객체로 만들어 중복 제거 후 개수 계산
-  function aggregateMovies() {
-    const aggregated = {};
+  // 영화 정보를 객체로 만들고 중복 제거 후 개수 계산
+  function groupMovies() {
+    const group = {};
+    //Id별로 그룹화할 객체
     purchaseHistory.forEach((movie) => {
-      if (aggregated[movie.id]) {
-        aggregated[movie.id].quantity += 1;
+      if (group[movie.id]) {
+        group[movie.id].quantity += 1;
+        //이미 Id 있으면 수량 증가
       } else {
-        aggregated[movie.id] = { ...movie, quantity: 1 };
+        group[movie.id] = { ...movie, quantity: 1 };
+        //처음 추가하면 수량 1
       }
     });
-    return Object.values(aggregated); // 배열 형태로 변환
+    return Object.values(group); // 배열 형태로 변환
   }
 
   // 장바구니 업데이트
   function updatePurchaseHistory() {
-    const aggregatedMovies = aggregateMovies();
+    const groupMovies = groupMovies();
 
-    if (aggregatedMovies.length === 0) {
+    if (groupMovies.length === 0) {
       purchaseHistoryContainer.innerHTML = "<p>구매한 영화가 없습니다.</p>";
     } else {
       purchaseHistoryContainer.innerHTML = `
@@ -43,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </tr>
           </thead>
           <tbody>
-            ${aggregatedMovies
+            ${groupMovies
               .map((movie) => {
                 const imagePath = movie.image.includes("/")
                   ? movie.image
@@ -76,14 +79,16 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCartCount();
   }
 
-  //수량 증가/감소 기능
+  //버튼 클릭 수량 증가/감소 기능
   window.updateQuantity = function (movieId, change) {
     const index = purchaseHistory.findIndex((movie) => movie.id === movieId);
     if (index !== -1) {
       if (change === -1) {
+        // - 버튼 눌릴때
         purchaseHistory.splice(index, 1);
       } else {
-        purchaseHistory.push(purchaseHistory[index]); // 같은 영화 추가
+        purchaseHistory.push(purchaseHistory[index]);
+        // 같은 영화 추가
       }
       localStorage.setItem("purchase_history", JSON.stringify(purchaseHistory));
       updatePurchaseHistory();

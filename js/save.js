@@ -337,11 +337,9 @@ const update = (id) => {
 
 //삭제
 function deleteMovie(id) {
-  const deleteItem = data_map.filter((item) => Number(item.id) !== id);
-  const tr = document.getElementById(`tr${id}`);
-  tr.remove();
-
-  localStorage.setItem("data_map", JSON.stringify(deleteItem));
+  data_map = data_map.filter((item) => Number(item.id) !== Number(id));
+  localStorage.setItem("data_map", JSON.stringify(data_map));
+  dataPrint();
 }
 
 // 데이터 생성
