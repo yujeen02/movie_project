@@ -343,6 +343,49 @@ function deleteMovie(id) {
   dataPrint();
 }
 
+//csv 파일로 다운로드
+const downloadCsv = function () {
+  let filename = "testFile.csv";
+  getCSV(filename);
+};
+
+//csv 생성 함수
+function getCSV(filename) {
+  var csv = [];
+  var row = [];
+
+  //1열에는 컬럼명
+  row.push("영화명", "러닝타임", "장르", "줄거리");
+
+  csv.push(row.join(","));
+
+  //data_map는 데이터 배열
+  data_map.forEach((data) => {
+    row = [];
+    row.push(data.name, data.runningTime, data.genre, data.plot);
+    csv.push(row.join(","));
+  });
+
+  downloadCSV(csv.join("\n"), filename);
+}
+// 다운로드 함수
+function downloadCSV(csv, filename) {
+  var csvFile;
+  var downloadLink;
+
+  //한글 처리를 해주기 위해 BOM 추가하기
+  const BOM = "\uFEFF";
+  csv = BOM + csv;
+
+  csvFile = new Blob([csv], { type: "text/csv" });
+  downloadLink = document.createElement("a");
+  downloadLink.download = filename;
+  downloadLink.href = window.URL.createObjectURL(csvFile);
+  downloadLink.style.display = "none";
+  document.body.appendChild(downloadLink);
+  downloadLink.click();
+}
+
 // 데이터 생성
 document.addEventListener("DOMContentLoaded", function () {
   const saveButton = document.querySelector(".saveBtn");
