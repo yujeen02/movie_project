@@ -48,33 +48,63 @@ body {
   max-width: 90%;
 }
 
-/* 영화 항목 스타일 */
+.heart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heart-history {
+  display: grid;
+  grid-template-columns: repeat(5, 200px); /* 5개씩 고정 크기로 배치 */
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px; /* 최대 너비 설정 */
+}
+
 .movie-item {
-  display: inline-block;
+  width: 200px; /* 각 영화 아이템 크기 고정 */
   background-color: #ffffff;
-  border-radius: 10px;
-  padding: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
-  min-width: 200px;
-  max-width: 250px;
-  text-align: center;
+  position: relative;
 }
 
 .movie-item:hover {
   transform: translateY(-5px);
 }
 
-/* 포스터 이미지 크기 고정 */
 .movie-img {
-  width: 200px; /* ⭐ 모든 포스터의 너비를 동일하게 설정 */
-  height: 300px; /* ⭐ 모든 포스터의 높이를 동일하게 설정 */
-  object-fit: cover; /* ⭐ 비율 유지하면서 크롭 */
-  border-radius: 8px;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
 }
 
-.movieItemBox {
-  text-align: center;
+button {
+  background: linear-gradient(135deg, #5c8d89, #3e615a);
+  color: white;
+  border: none;
+  padding: 0.5em;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #3e615a, #2b4541);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(60, 90, 85, 0.4);
+}
+
+.clickHeart1 {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .heart-icon {

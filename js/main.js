@@ -47,16 +47,16 @@ window.heartClick = function (movieId) {
 };
 
 //페이지네이션
-function paginate(items, currentPage, itemsPerPage) {
+window.paginate = function (items, currentPage, itemsPerPage) {
   const totalPages = Math.ceil(items.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const paginatedItems = items.slice(startIndex, endIndex);
   return { currentPage, totalPages, paginatedItems };
-}
+};
 
 // 페이지네이션 UI 생성 함수
-function renderPagination(totalPages) {
+window.renderPagination = function (totalPages) {
   paginationWrapper.innerHTML = ""; // 기존 페이지네이션 초기화
 
   // 이전 버튼
@@ -103,15 +103,15 @@ function renderPagination(totalPages) {
     if (currentPage < totalPages) changePage(currentPage + 1);
   });
   paginationWrapper.appendChild(nextPage);
-}
+};
 
 // 페이지 변경 함수
-function changePage(page) {
+window.changePage = function (page) {
   const totalPages = Math.ceil(data_map.length / itemsPerPage);
   if (page < 1 || page > totalPages) return; // 범위를 넘어가면 리턴
   currentPage = page;
   displayItems(page);
-}
+};
 
 // 요소 display 함수
 const displayItems = (page) => {
