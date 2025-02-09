@@ -203,3 +203,22 @@ button:hover {
     min-width: 180px;
   }
 }
+#pagination-wrapper {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  justify-content: center; /* 가운데 정렬 */
+  align-items: center; /* 세로 정렬 */
+}
+
+#pagination-wrapper li {
+  margin: 0 5px;
+  cursor: pointer;
+}
+#pagination-wrapper li.active {
+  font-weight: bold;
+}
+#pagination-wrapper li.disabled {
+  cursor: not-allowed;
+  color: #ccc;
+}
