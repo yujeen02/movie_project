@@ -1,16 +1,17 @@
+const cartCount = document.getElementById("cartCount");
+let data_map = JSON.parse(localStorage.getItem("data_map")) || []; // 모든 영화 정보 가져오기
+let purchaseHistory =
+  JSON.parse(localStorage.getItem("purchase_history")) || []; // 장바구니에 추가된 영화 정보 가져오기
+
+//장바구니 숫자 카운트 하는 함수
+const updateCartCount = () => {
+  let count = purchaseHistory.length;
+  cartCount.innerText = count;
+  cartCount.style.display = count > 0 ? "flex" : "none";
+};
+
 document.addEventListener("DOMContentLoaded", function () {
-  const cartCount = document.getElementById("cartCount");
-  let data_map = JSON.parse(localStorage.getItem("data_map")) || []; // 모든 영화 정보 가져오기
-  let purchaseHistory =
-    JSON.parse(localStorage.getItem("purchase_history")) || []; // 장바구니에 추가된 영화 정보 가져오기
-
-  //장바구니 숫자 카운트 하는 함수
-  function updateCartCount() {
-    let count = purchaseHistory.length;
-    cartCount.innerText = count;
-    cartCount.style.display = count > 0 ? "flex" : "none";
-  }
-
+  updateCartCount();
   // URL에서 영화 ID 가져오기
   const urlParams = new URLSearchParams(window.location.search);
   const movieId = urlParams.get("id");

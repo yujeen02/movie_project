@@ -1,37 +1,56 @@
-/* 기본 스타일 */
 body {
   font-family: "Roboto", Arial, sans-serif;
-  background-color: #f0f2f5; /* 밝고 부드러운 배경 */
-  color: #333; /* 다크 그레이 텍스트 */
+  background-color: #f0f2f5;
+  color: #333;
   margin: 0;
-  padding: 80px 20px 20px; /* 상단 패딩 추가 (헤더 공간 확보) */
+  padding: 0;
 }
 
-/* 헤더 스타일 */
 .header {
-  position: fixed; /* 화면에 고정 */
-  background-color: #4a6472; /* 고급스러운 그린 */
+  position: fixed;
+  background-color: #4a6472;
   color: #fff;
   padding: 1em 0;
   display: flex;
   align-items: center;
-  justify-content: center;
   padding: 25px 20px;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000; /* 다른 요소 위에 표시 */
+  z-index: 1000;
 }
 
-h1 {
-  font-size: 24px;
-  margin: 0;
-}
-
-/* 장바구니 스타일 */
-.cart-wrapper {
+.headerCenter {
   position: absolute;
-  right: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+#mainIcon {
+  width: 100px;
+  height: auto;
+}
+
+.cinemaName {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.lefticon {
+  width: 38px;
+  height: 38px;
+}
+
+.usericon {
+  position: absolute;
+  right: 70px;
+  width: 70px;
+  height: 70px;
 }
 
 .cart-wrapper {
@@ -53,19 +72,22 @@ h1 {
   color: white;
   font-size: 12px;
   font-weight: bold;
-  width: 18px;
-  height: 18px;
-  display: flex;
-  align-items: center; /* 수직 중앙 정렬 */
-  justify-content: center; /* 수평 중앙 정렬 */
+  width: 15px;
+  height: 15px;
   text-align: center;
   border-radius: 50%;
-  display: none; /* 기본적으로 숨김 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
 }
 
 /* 세부사항 body */
+
 .body-wrap {
-  height: 700px;
+  padding: 2em;
+  padding-top: 100px;
+  align-items: center;
 }
 /* 세부사항 */
 .detail-container {
@@ -73,12 +95,13 @@ h1 {
   border-radius: 12px;
   max-width: 700px;
   margin: 50px auto 30px;
-  box-shadow: 0 5px /15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
   height: auto;
   position: relative;
+  padding-bottom: 30px; /* 아래 패딩 추가 */
 }
 
 /* 포스터 컨테이너 (서브 포스터 2개를 가로 정렬) */
@@ -90,6 +113,7 @@ h1 {
   height: 200px;
   width: 400px;
   position: relative;
+  opacity: 0.8;
 }
 
 #movieImage {
@@ -107,7 +131,7 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 10px; /* 위아래 간격 */
-  max-width: 400px; /* 최대 너비 설정 */
+  max-width: 500px; /* 최대 너비 설정 */
   word-wrap: break-word; /* 단어가 길 경우 자동 줄바꿈 */
   overflow-wrap: break-word; /* 긴 단어도 줄바꿈 */
   white-space: normal; /* 기본적인 줄바꿈 허용 */
@@ -115,7 +139,7 @@ h1 {
 
 .btn {
   display: inline-block;
-  background: linear-gradient(135deg, #5c8d89, #3e615a);
+  background: #4a6472;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -124,12 +148,11 @@ h1 {
   transition: all 0.3s ease;
   font-weight: bold;
   font-size: 16px;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 20px; /* 버튼과 위 요소 간격 조정 */
+  width: 200px; /* 버튼 크기 조정 */
 }
 
 .btn:hover {

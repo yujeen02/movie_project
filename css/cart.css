@@ -4,18 +4,85 @@ body {
   color: #333;
   margin: 0;
   padding: 0;
-  text-align: center;
+}
+
+.body-wrap {
+  padding: 2em;
+  padding-top: 120px;
+  align-items: center;
 }
 .header {
-  position: relative; /* 기준점 설정 */
+  position: fixed;
   background-color: #4a6472;
   color: #fff;
   padding: 1em 0;
   display: flex;
   align-items: center;
+  padding: 25px 20px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.headerCenter {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
   justify-content: center;
-  padding: 10px 20px;
-  gap: 20px;
+  gap: 10px;
+}
+
+#mainIcon {
+  width: 100px;
+  height: auto;
+}
+
+.cinemaName {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.lefticon {
+  width: 38px;
+  height: 38px;
+}
+
+.usericon {
+  position: absolute;
+  right: 70px;
+  width: 70px;
+  height: 70px;
+}
+
+.cart-wrapper {
+  position: absolute;
+  right: 50px;
+}
+
+.cart-icon {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+
+.cart-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  width: 15px;
+  height: 15px;
+  text-align: center;
+  line-height: 15px;
+  border-radius: 50%;
+  display: none;
 }
 
 .purchase-table {

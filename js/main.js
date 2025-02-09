@@ -14,20 +14,20 @@ let currentPage = 1;
 let itemsPerPage = 10;
 
 // 장바구니 개수 증가 감소, 0이면 숨김처리
-function updateCartCount() {
+const updateCartCount = () => {
   let count = purchaseHistory.length;
   cartCount.innerText = count;
   cartCount.style.display = count > 0 ? "block" : "none";
-}
+};
 
 // 상세 정보 페이지로 이동하는 함수
-window.goDetail = function (movieId) {
+const goDetail = (movieId) => {
   window.location.href = `detail.html?id=${movieId}`;
 };
 // 버튼 클릭하면 해당 영화의 id 값을 URL의 쿼리스트링인 ?id=영화번호에 추가하여 detail.html 페이지로 이동
 
 // 좋아요 버튼 클릭 시 영화 추가/삭제
-window.heartClick = function (movieId) {
+const heartClick = (movieId) => {
   // 해당하는 영화의 하트 아이콘
   let heartIcon = document.querySelector(`.heart-icon[data-id="${movieId}"]`);
   // 현재 클릭한 영화 데이터
@@ -47,7 +47,7 @@ window.heartClick = function (movieId) {
 };
 
 //페이지네이션
-window.paginate = function (items, currentPage, itemsPerPage) {
+const paginate = (items, currentPage, itemsPerPage) => {
   const totalPages = Math.ceil(items.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -56,7 +56,7 @@ window.paginate = function (items, currentPage, itemsPerPage) {
 };
 
 // 페이지네이션 UI 생성 함수
-window.renderPagination = function (totalPages) {
+const renderPagination = (totalPages) => {
   paginationWrapper.innerHTML = ""; // 기존 페이지네이션 초기화
 
   // 이전 버튼
@@ -106,7 +106,7 @@ window.renderPagination = function (totalPages) {
 };
 
 // 페이지 변경 함수
-window.changePage = function (page) {
+const changePage = (page) => {
   const totalPages = Math.ceil(data_map.length / itemsPerPage);
   if (page < 1 || page > totalPages) return; // 범위를 넘어가면 리턴
   currentPage = page;
