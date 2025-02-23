@@ -56,7 +56,4 @@ const removeHeart = (movieid) => {
 document.addEventListener("DOMContentLoaded", function () {
   updateHeartHistory();
   updateCartCount();
-  goDetail(movieId);
-  removeHeart(movieId);
-  updateHeartHistory();
 });

@@ -116,6 +116,22 @@ th {
   font-weight: 600;
 }
 
+/* 줄거리 열의 너비를 줄이기 */
+th:nth-child(5),
+td.moviePlot {
+  max-width: 400px; /* 원하는 너비 설정 */
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; /* 긴 텍스트는 한 줄로 표시 */
+}
+
+/* 마우스를 올리면 전체 줄거리를 볼 수 있도록 설정 */
+td.moviePlot:hover {
+  white-space: normal; /* 마우스를 올리면 여러 줄로 표시 */
+  word-wrap: break-word;
+}
+
 tbody tr {
   border-bottom: 1px solid #d8e3d5; /* 연한 올리브 구분선 */
   transition: background-color 0.2s ease;
@@ -136,6 +152,33 @@ tbody tr:nth-child(even) {
 /* 테이블 하단 경계선 */
 tbody tr:last-child {
   border-bottom: none;
+}
+
+.download-wrap {
+  display: flex;
+  justify-content: flex-end; /* 기본 오른쪽 정렬 */
+  width: 100%;
+  max-width: 1500px;
+  margin-bottom: 10px;
+}
+
+.download {
+  background: linear-gradient(135deg, #7e9c7c, #657d63); /* 짙은 올리브 그린 */
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-right: 100px; /* 오른쪽 여백으로 약간 왼쪽 이동 */
+}
+
+.download:hover {
+  background: linear-gradient(135deg, #657d63, #50644f);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(101, 125, 99, 0.4);
 }
 
 /* 반응형 스타일 */

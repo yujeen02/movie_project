@@ -85,7 +85,6 @@ body {
 /* 세부사항 body */
 
 .body-wrap {
-  padding: 2em;
   padding-top: 100px;
   align-items: center;
 }
@@ -93,8 +92,8 @@ body {
 .detail-container {
   background: white;
   border-radius: 12px;
-  max-width: 700px;
-  margin: 50px auto 30px;
+  max-width: 600px;
+  margin: 20px auto 30px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
@@ -109,9 +108,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
   height: 200px;
-  width: 400px;
+  width: 600px;
   position: relative;
   opacity: 0.8;
 }
@@ -119,7 +117,7 @@ body {
 #movieImage {
   position: absolute;
   top: 200px;
-  right: 70px;
+  right: 30px;
   border-radius: 8px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
   z-index: 100;
@@ -131,7 +129,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px; /* 위아래 간격 */
-  max-width: 500px; /* 최대 너비 설정 */
+  width: 500px; /* 최대 너비 설정 */
   word-wrap: break-word; /* 단어가 길 경우 자동 줄바꿈 */
   overflow-wrap: break-word; /* 긴 단어도 줄바꿈 */
   white-space: normal; /* 기본적인 줄바꿈 허용 */

@@ -207,7 +207,7 @@ function myPlotFunction() {
 const inputNameChange = (id) => {
   const inputNValue = document.querySelector(`.inputN${id}`).value;
   const inputNSpan = document.querySelector(`.spanN${id}`);
-  if (inputNValue.trim() === "") {
+  if (inputNValue === "") {
     inputNSpan.innerText = "내용을 채워주세요.";
   } else {
     inputNSpan.innerText = "";
@@ -218,10 +218,8 @@ const inputNameChange = (id) => {
 const inputTimeChange = (id) => {
   const inputTValue = document.querySelector(`.inputT${id}`).value;
   const inputTSpan = document.querySelector(`.spanT${id}`);
-  if (inputTValue.trim() === "") {
+  if (inputTValue === "") {
     inputTSpan.innerText = "내용을 채워주세요.";
-  } else if (inputTValue > 150) {
-    inputTSpan.innerText = "150살 이상은 어려워요.";
   } else {
     inputTSpan.innerText = "";
   }
@@ -231,7 +229,7 @@ const inputTimeChange = (id) => {
 const inputGenreChange = (id) => {
   const inputGValue = document.querySelector(`.inputG${id}`).value;
   const inputGSpan = document.querySelector(`.spanG${id}`);
-  if (inputGValue.trim() === "") {
+  if (inputGValue === "") {
     inputGSpan.innerText = "내용을 채워주세요.";
   } else {
     inputGSpan.innerText = "";
@@ -243,26 +241,13 @@ const inputPlotChange = (id) => {
   const inputPValue = document.querySelector(`.inputP${id}`).value;
   const inputPSpan = document.querySelector(`.spanP${id}`);
 
-  if (inputPValue.trim() === "") {
+  if (inputPValue === "") {
     inputPSpan.innerText = "내용을 채워주세요.";
   } else if (inputPValue.length < 15) {
     inputPSpan.innerText = "15자리 이상 작성해 주세요.";
   } else {
     inputPSpan.innerText = "";
   }
-};
-
-// 에러 지우기
-const clearError = (id) => {
-  const inputTSpan = document.querySelector(`.spanT${id}`);
-  const inputNSpan = document.querySelector(`.spanN${id}`);
-  const inputGSpan = document.querySelector(`.spanG${id}`);
-  const inputPSpan = document.querySelector(`.spanP${id}`);
-
-  inputTSpan.innerText = "";
-  inputNSpan.innerText = "";
-  inputGSpan.innerText = "";
-  inputPSpan.innerText = "";
 };
 
 //수정
@@ -337,39 +322,43 @@ const update = (id) => {
 };
 
 //삭제
-function deleteMovie(id) {
+const deleteMovie = (id) => {
   data_map = data_map.filter((item) => Number(item.id) !== Number(id));
   localStorage.setItem("data_map", JSON.stringify(data_map));
   dataPrint();
-}
+};
 
 //csv 파일로 다운로드
-const downloadCsv = function () {
+const downloadCsv = () => {
   let filename = "testFile.csv";
   getCSV(filename);
 };
 
 //csv 생성 함수
-function getCSV(filename) {
-  var csv = [];
-  var row = [];
+const getCSV = (filename) => {
+  let csv = [];
+  let row = [];
 
-  //1열에는 컬럼명
-  row.push("영화명", "러닝타임", "장르", "줄거리");
-
+  // 헤더 생성
+  row.push('"아이디"', '"영화명"', '"러닝타임"', '"장르"', '"줄거리"');
   csv.push(row.join(","));
 
-  //data_map는 데이터 배열
+  // 데이터 추가
   data_map.forEach((data) => {
     row = [];
-    row.push(data.name, data.runningTime, data.genre, data.plot);
+    row.push(`"${data.id}"`); // 아이디
+    row.push(`"${data.name.replace(/"/g, '""')}"`); // 영화명 (따옴표 처리)
+    row.push(`"${data.runningTime}"`); // 러닝타임
+    row.push(`"${data.genre.replace(/"/g, '""')}"`); // 장르
+    row.push(`"${data.plot.replace(/"/g, '""').replace(/\n/g, " ")}"`); // 줄거리 (줄바꿈 제거)
     csv.push(row.join(","));
   });
 
   downloadCSV(csv.join("\n"), filename);
-}
+};
+
 // 다운로드 함수
-function downloadCSV(csv, filename) {
+const downloadCSV = (csv, filename) => {
   var csvFile;
   var downloadLink;
 
@@ -384,7 +373,7 @@ function downloadCSV(csv, filename) {
   downloadLink.style.display = "none";
   document.body.appendChild(downloadLink);
   downloadLink.click();
-}
+};
 
 // 데이터 생성
 document.addEventListener("DOMContentLoaded", function () {
