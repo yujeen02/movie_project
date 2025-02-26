@@ -16,12 +16,15 @@
 
 <메인 페이지> - 페이지네이션 구현
 
+![Image](https://github.com/user-attachments/assets/384dfab7-b55f-42d9-a773-d9b8a0d30d29)
+
+<상세 페이지>
 ![Image](https://github.com/user-attachments/assets/c6cd233a-c170-4410-9c6b-24ad4e5d53da)
 
+<찜한 목록 페이지>
 ![Image](https://github.com/user-attachments/assets/ecfe91c1-859f-4f7b-99d6-f39e337d1ec7)
 
-![Image](https://github.com/user-attachments/assets/384dfab7-b55f-42d9-a773-d9b8a0d30d29)
-  
+<장바구니 페이지>
 
 <br />
 
