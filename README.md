@@ -7,6 +7,9 @@
 - 유효성 검사
 ![Image](https://github.com/user-attachments/assets/86523bc2-d94d-47ba-95d3-658aa8659415)
 
+- 저장 버튼 클릭 시
+- 내용 수정
+- csv 다운로드
 <바로가기 기능 및 드롭다운>
   
 
