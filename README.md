@@ -21,13 +21,16 @@
 <상세 페이지>
 ![Image](https://github.com/user-attachments/assets/c6cd233a-c170-4410-9c6b-24ad4e5d53da)
 
+<상세 페이지에서 관람권 구매>
+![Image](https://github.com/user-attachments/assets/b9f320e2-7399-496a-a81d-388367024554)
+
 <찜한 목록 페이지>
 ![Image](https://github.com/user-attachments/assets/ecfe91c1-859f-4f7b-99d6-f39e337d1ec7)
 
 <장바구니 페이지>
 ![Image](https://github.com/user-attachments/assets/cff41c11-ab2f-47e4-a1e2-4444646b9dde)
 
-![Image](https://github.com/user-attachments/assets/b9f320e2-7399-496a-a81d-388367024554)
+
 ![Image](https://github.com/user-attachments/assets/52c99b90-ce1b-4d0f-915a-8bbdf2d94e1b)
 <br />
 
